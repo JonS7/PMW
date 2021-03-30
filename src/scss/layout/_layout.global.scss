@@ -34,7 +34,10 @@
 }
 
 .page-header {
-  margin-bottom: var(--s_row);
+  
+  &:not(:only-child) {
+    margin-bottom: var(--s_row);
+  }
 
   > * {
     margin: 0;

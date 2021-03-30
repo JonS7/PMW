@@ -7,7 +7,7 @@ module.exports = function() {
     return new Promise(async (resolve, reject) => {
         //const logoFolder = path.resolve(__dirname, './images/client-logos/');
         //const logos = await fg('**/*.png', { cwd: logoFolder });
-        const logos = await fg(['**/client-logos/*', '!**/build']);
+        const logos = await fg(['**/client-logos/*', '!**/_site']);
         const logoData = await Promise.all(logos.map(async (logo) => {
          
             const name = path.basename(logo);

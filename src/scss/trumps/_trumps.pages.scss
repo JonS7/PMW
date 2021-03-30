@@ -22,7 +22,7 @@
 */
 
 .Home .S-hero {
-
+  overflow: hidden;
   @media (min-width: $hero_layout_mode) {
     min-height: 100vh;
   }
@@ -68,5 +68,9 @@
   @media (min-width: $bp_xxl) {
     max-width: 15em;
     transform: translateX(5rem);
+  }
+
+  @media (min-width: $bp_xxxl) {
+    transform: translateX(0);
   }
 }

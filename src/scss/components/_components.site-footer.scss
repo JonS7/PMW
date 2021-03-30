@@ -6,11 +6,18 @@
   font-size: var(--ms-size_-1);
   color: $t-light;
 
-  .credit {
+  a {
     text-decoration: none;
-    color: currentColor;
-    text-transform: uppercase;
     opacity: .75;
+    color: currentColor;
+
+    @include link-styles {
+      opacity: 1;
+    }
+  }
+
+  .credit {
+    text-transform: uppercase;
     font-size: 75%;
     //padding: .25em 0;
     margin-left: auto;
