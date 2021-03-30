@@ -8,7 +8,7 @@
     "production": "npm run clean && npx eleventy",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
     "clean": "rm -rf build",
-    "build": "env NODE_ENV=production npx eleventy --pathprefix 'pmw'"
+    "build": "env NODE_ENV=production npx eleventy"
   },
   "author": "",
   "license": "ISC",
