@@ -1,0 +1,10 @@
+
+.lazy {
+  opacity: 0;
+  transition: opacity $trans-fast;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+

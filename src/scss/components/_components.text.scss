@@ -1,0 +1,37 @@
+//Passages of text
+
+.subhead {
+  margin: .25rem 0 0;
+  @media (max-width: $bp_xxs) {
+    font-size: var(--ms-size_-1)
+  }
+}
+
+.typeset li {
+  margin: 0 0 1rem;
+}
+
+.section-body {
+  @media (min-width: $bp_med_large) {
+    font-size: var(--ms-size_2);
+  }
+}
+
+
+.-hr .gi {
+  border-top: 1px solid $t-mid;
+  padding-top: 1rem;
+  margin: 0;
+}
+
+.-hr .gi.section-body {
+  padding-top: 2rem;
+
+  @media (max-width: $grid_mode_max) {
+    border: 0;
+    padding: 0;
+    margin-bottom: .5rem;
+  }
+}
+
+

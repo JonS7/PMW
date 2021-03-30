@@ -1,0 +1,38 @@
+
+
+.S-hero {
+  
+  
+  &:only-child {
+   // height: 100%;
+   flex: 1;
+   align-self: center;
+  }
+  
+  /*&::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-body;
+    background-repeat: no-repeat;
+  }*/
+}
+
+.S-hero_media {
+  background-color: $color-body;
+
+  img {
+    mix-blend-mode: lighten;
+  }
+  
+}
+
+.S-hero_text {
+  position: relative;
+  z-index: 1;
+  font-size: var(--ms-size_5);
+  margin: 0;
+}

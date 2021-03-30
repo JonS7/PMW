@@ -1,0 +1,36 @@
+
+
+.g-1-1 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.g-1-1-1 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.g.-sm-1 {
+  @media (max-width: $grid_mode_max) {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.g.-overlay {
+
+  @media (min-width: $grid_overlay_mode) {
+    grid: 100% / 100%;
+
+    > * {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+}
+
+.g.-overflow {
+  margin-right: calc(var(--gap) * -1);
+  grid-auto-flow: column;
+  //grid-auto-columns: calc(#{$item-width} - var(--gap)); // in features
+}
+
+

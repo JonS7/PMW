@@ -1,0 +1,41 @@
+{
+  "name": "pmw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run clean && clear && ELEVENTY_ENV=development npx eleventy --serve",
+    "production": "npm run clean && npx eleventy",
+    "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
+    "clean": "rm -rf build",
+    "build": "env NODE_ENV=production npx eleventy --pathprefix 'pmw'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-navigation": "^0.1.6",
+    "autoprefixer": "^10.2.5",
+    "cssnano": "^4.1.10",
+    "html-minifier": "^4.0.0",
+    "imagemin": "^7.0.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^9.0.0",
+    "inline-source": "^7.2.0",
+    "postcss": "^8.2.8",
+    "postcss-advanced-variables": "^3.0.1",
+    "postcss-calc": "^7.0.5",
+    "postcss-conditionals": "^2.1.0",
+    "postcss-custom-media": "^8.0.0",
+    "postcss-custom-properties": "^11.0.0",
+    "postcss-hexrgba": "^2.0.1",
+    "postcss-media-variables": "^2.0.1",
+    "postcss-nested": "^5.0.5",
+    "postcss-scss": "^3.0.5",
+    "postcss-sort-media-queries": "^3.6.5"
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.5"
+  }
+}

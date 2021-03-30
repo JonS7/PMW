@@ -1,0 +1,92 @@
+// fonts
+$font-sans: "FoundersGrotesk", "Helvetica Neue", "helvetica", sans-serif;
+$font-serif: "Quattrocento", "Constantia", "Georgia", "Times New Roman", serif;
+$font-mono: "FoundersGroteskMono", monospace !default;
+$font-numbers: "Rubik", monospace !default;
+$paragraph-indent: false;
+$paragraph-justify: false;
+$line-height: 1.25;
+$thin : 100;
+$light : 300;
+$regular : 400;
+$medium : 500;
+$semi-bold : 600;
+$bold : 700;
+$heavy : 800;
+$black : 900;
+$font : $font-sans;
+$font-heading : $font-sans;
+$font-small: 75%;
+
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: normal;
+  font-weight: $regular;
+  src: url("../fonts/Test Founders Grotesk/test-founders-grotesk-regular.woff") format("woff");
+}
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: normal;
+  font-weight: $semi-bold;
+  src: url("../fonts/Test Founders Grotesk/test-founders-grotesk-semibold.woff") format("woff");
+}
+@font-face {
+  font-family: "FoundersGroteskMono";
+  font-style: normal;
+  font-weight: $light;
+  src: url("../fonts/Test Founders Grotesk Mono/test-founders-grotesk-mono-light.woff") format("woff");
+}
+@font-face {
+  font-family: "FoundersGroteskMono";
+  font-style: normal;
+  font-weight: $semi-bold;
+  src: url("../fonts/Test Founders Grotesk Mono/test-founders-grotesk-mono-semibold.woff") format("woff");
+}
+@font-face {
+  font-family: "FoundersGroteskMono";
+  font-style: normal;
+  font-weight: $medium;
+  src: url("../fonts/Test Founders Grotesk Mono/test-founders-grotesk-mono-medium.woff") format("woff");
+}
+@font-face {
+  font-family: "FoundersGroteskMono";
+  font-style: normal;
+  font-weight: $regular;
+  src: url("../fonts/Test Founders Grotesk Mono/test-founders-grotesk-mono-regular.woff") format("woff");
+}
+
+/* stylelint-disable */
+$base-font-size : 16px;
+$px12 : (12px / $base-font-size) + 0em !default;
+$px13 : (13px / $base-font-size) + 0em !default;
+$px14 : (14px / $base-font-size) + 0em !default;
+$px15 : (15px / $base-font-size) + 0em !default;
+$px16 : (16px / $base-font-size) + 0em !default;
+$px17 : (17px / $base-font-size) + 0em !default;
+$px18 : (18px / $base-font-size) + 0em !default;
+$px19 : (19px / $base-font-size) + 0em !default;
+$px20 : (20px / $base-font-size) + 0em !default;
+$px22 : (22px / $base-font-size) + 0em !default;
+$px24 : (24px / $base-font-size) + 0em !default;
+$px25 : (25px / $base-font-size) + 0em !default;
+$px26 : (26px / $base-font-size) + 0em !default;
+$px28 : (28px / $base-font-size) + 0em !default;
+$px30 : (30px / $base-font-size) + 0em !default;
+$px32 : (32px / $base-font-size) + 0em !default;
+$px34 : (34px / $base-font-size) + 0em !default;
+$px36 : (36px / $base-font-size) + 0em !default;
+$px38 : (38px / $base-font-size) + 0em !default;
+$px40 : (40px / $base-font-size) + 0em !default;
+$px42 : (42px / $base-font-size) + 0em !default;
+$px44 : (44px / $base-font-size) + 0em !default;
+$px46 : (46px / $base-font-size) + 0em !default;
+$px48 : (48px / $base-font-size) + 0em !default;
+$px50 : (50px / $base-font-size) + 0em !default;
+$px52 : (52px / $base-font-size) + 0em !default;
+$px54 : (54px / $base-font-size) + 0em !default;
+$px56 : (56px / $base-font-size) + 0em !default;
+$px58 : (58px / $base-font-size) + 0em !default;
+$px60 : (60px / $base-font-size) + 0em !default;
+$px64 : (64px / $base-font-size) + 0em !default;
+$px72 : (72px / $base-font-size) + 0em !default;
+/* stylelint-enable */

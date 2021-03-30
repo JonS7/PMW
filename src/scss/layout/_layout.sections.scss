@@ -1,0 +1,83 @@
+
+$orbital-outline :  var(--ms-size_4);
+//$item-width : 20%;
+//$item-count : 12;
+
+.orbitals {
+  --gap: 1rem;
+  overflow: hidden;
+  padding: $orbital-outline 0;
+
+  .S-map + & {
+    margin-top: calc(var(--s_row) * -1);
+    margin-bottom: var(--s_row);
+  }
+}
+
+.S-logos {
+  margin: calc(var(--s_row) / 2 * -1) 0;
+}
+
+
+.S-map {
+  padding: 0;
+  z-index: 99;
+  position: relative;
+
+  .-is-bg {
+    z-index: -1;
+  }
+
+  .lc {
+
+    @media (max-width: $grid_overlay_mode_max) {
+      padding-top: 0;
+    }
+    
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+.encircle {
+  font-weight: $light;
+  font-size: var(--ms-size_2);
+  width: 100%;
+  background: $color-base;
+  color: $color-body;
+  padding: 10%;
+  border-radius: 50%;
+  position: relative;
+  text-align: center;
+
+  &::before, &::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: var(--gap);
+    //word-wrap: break-word;
+  }
+
+  &::after {
+    position: absolute;
+    top: calc(#{$orbital-outline} * -1);
+    left: calc(#{$orbital-outline} * -1);
+    right: calc(#{$orbital-outline} * -1);
+    bottom: calc(#{$orbital-outline} * -1);
+    border-radius: 50%;
+    border: 1px solid $t-light;
+  }
+
+}

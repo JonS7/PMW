@@ -1,0 +1,10 @@
+/* Links */
+a {
+  color: $color-link;
+  text-decoration: underline;
+  transition: $trans-fast;
+
+  @include link-styles {
+    color: $color-link-respond;
+  }
+}

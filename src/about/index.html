@@ -1,0 +1,77 @@
+---
+title: About us
+description: This is a demonstration website generated using the 11ty static site generator.
+layout: page.njk
+eleventyNavigation:
+  key: about
+  order: 200
+---
+
+<div class="lc S-text">
+    <div class="page-header">
+      <h1>{{ title }}</h1>
+      <p class="subhead ltr-sp font-mono">Portess Medical Writing</p>
+    </div>
+    <div class="g g-1-1 -sm-1 -hr">
+        <h2 class="gi">What we do</h2>
+        <div class="gi section-body typeset">
+            <p>Portess Medical Writing Consultancy (PMW) offers professional medical writing in tandem with strategic regulatory guidance and advice. Blending clear, accurate and concise scientific communication with insightful input to regulatory strategy, allows PMW to maximize the quality and efficiency of regulatory interactions across the drug development process.
+        </div>
+        <h2 class="gi">Our team</h2>
+        <div class="gi section-body typeset">
+            <p>Our team have a range of experience within the pharmaceutical company and writing agency environments, giving us a broad understanding of drug development and the pharmaceutical industry. We have extensive experience in preparing regulatory documents and a proven track record for delivering quality on time, while ensuring compliance with industry and regulatory guidelines. The PMW team have planned and delivered successful regulatory submissions across a range of markets (EU, US, Asia) and therapeutic areas.
+        </div>
+        <h2 class="gi">Our clients</h2>
+        <div class="gi section-body typeset">
+            <p>Portess Medical Writing Consultancy (PMW) offers professional medical writing in tandem with strategic regulatory guidance and advice. Blending clear, accurate and concise scientific communication with insightful input to regulatory strategy, allows PMW to maximize the quality and efficiency of regulatory interactions across the drug development process.
+        </div>
+    </div>
+</div>
+
+
+<div class="lc S-logos scroller-wrap marquee">
+
+    <ul class="scroller g -overflow font-mono marquee__inner">
+
+      {% for logo in logos %}
+        <li class="gi f ai-c jc-c"><img src="/images/{{ logo.name }}" alt="" /></li>
+      {% endfor %}
+
+      {% for logo in logos %}
+        <li class="gi f ai-c jc-c"><img src="/images/{{ logo.name }}" alt="" /></li>
+      {% endfor %}
+
+    </ul>
+
+
+</div>
+
+<div class="S-map g -overlay ai-c jc-c typeset">
+
+  <div class="map gi -is-bg font-mono">
+    <img src="/images/map.svg" width="1815" height="857"  alt="" inline>
+  </div>
+
+  <h3 class="text-center lc">We have experience in a range of international markets and therapeutic areas</h3>
+
+</div>
+
+<div class="orbitals scroller-wrap marquee">
+
+
+
+    <ul class="scroller g -overflow font-mono marquee__inner">
+
+        {% for area in areas %}
+          <li class="gi encircle f ai-c jc-c"><span>{{ area }}</span></li>
+        {% endfor %}
+
+        {% for area in areas %}
+          <li class="gi encircle f ai-c jc-c"><span>{{ area }}</span></li>
+        {% endfor %}
+
+      
+    </ul>
+
+
+</div>
