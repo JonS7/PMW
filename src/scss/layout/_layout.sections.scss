@@ -8,9 +8,8 @@ $orbital-outline :  var(--ms-size_4);
   overflow: hidden;
   padding: $orbital-outline 0;
 
-  .S-map + & {
-    margin-top: calc(var(--s_row) * -1);
-    margin-bottom: var(--s_row);
+  & + .S-map {
+    margin-top: -2vw;
   }
 }
 
@@ -18,10 +17,6 @@ $orbital-outline :  var(--ms-size_4);
   margin:  0;
   padding: 1rem 0;
   background: $color-base;
-  .scroller {
-    
-    
-  }
 }
 
 

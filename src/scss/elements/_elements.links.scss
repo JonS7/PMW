@@ -1,10 +1,31 @@
 /* Links */
 a {
   color: $color-link;
-  text-decoration: underline;
+  text-decoration: none;
   transition: $trans-fast;
+  position: relative;
+
+  .typeset &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: .2em;
+    background: $color-link;
+    transform-origin: 0 100%;
+    transition: transform $trans-fast;
+    transform: scaleY(.1);
+    display: block;
+    mix-blend-mode: difference;
+  }
 
   @include link-styles {
     color: $color-link-respond;
+
+    .typeset &::after {
+      transform: scaleY(1);
+    }
+
   }
 }

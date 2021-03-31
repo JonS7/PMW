@@ -18,3 +18,14 @@
 .map text {
   font-size: var(--ms-size_2);
 }
+
+@media (min-width: $bp_small) {
+  .text-contain {
+    max-width: 20em;
+    margin: auto;
+  }
+
+  .page-header + .text-contain {
+    text-align: center;
+  }
+}
