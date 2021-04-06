@@ -1,0 +1,102 @@
+
+$orbital-outline :  var(--ms-size_4);
+//$item-width : 20%;
+//$item-count : 12;
+
+.orbitals-wrap {
+  position: relative
+}
+
+.S-areas {
+  --gap: 1rem;
+  overflow: hidden;
+  padding: $orbital-outline 0;
+
+  align-items: start;
+    //justify-content: start;
+  //position: absolute;
+
+  .scroller {
+
+  }
+
+  & + .S-map {
+   // margin-top: -20vw;
+  }
+}
+
+.S-logos {
+  margin:  0;
+  padding: 10rem 0;
+  background: $color-base;
+}
+
+
+.S-map {
+  padding: 0;
+  z-index: 99;
+  position: relative;
+  //margin-top: -20vw;
+
+ 
+
+  .lc {
+
+    @media (max-width: $grid_overlay_mode_max) {
+      padding-top: 0;
+    }
+    
+  }
+
+  
+}
+
+.map {
+   .-is-bg {
+    z-index: -1;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+.encircle {
+  font-weight: $light;
+  font-size: var(--ms-size_2);
+  width: 100%;
+  background: $color-base;
+  color: $color-body;
+  padding: 10%;
+  border-radius: 50%;
+  position: relative;
+  text-align: center;
+
+  &::before, &::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: var(--gap);
+    //word-wrap: break-word;
+  }
+
+  &::after {
+    position: absolute;
+    top: calc(#{$orbital-outline} * -1);
+    left: calc(#{$orbital-outline} * -1);
+    right: calc(#{$orbital-outline} * -1);
+    bottom: calc(#{$orbital-outline} * -1);
+    border-radius: 50%;
+    border: 1px solid $t-light;
+  }
+
+}

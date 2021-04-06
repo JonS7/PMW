@@ -1,0 +1,97 @@
+/* ------------------------------------*\
+    $COLOR VARIABLES
+\*------------------------------------ */
+
+// handy monochrome
+$black : #000;
+$white : #fff;
+$dim : rgba(0, 0, 0, .33);
+$gray-xdark : #222;
+$gray-dark : #444;
+$gray-med : #666;
+$gray : #888;
+$gray-light : #ccc;
+$gray-xlight : #ededed;
+$gray-xxlight : #eee;
+
+// primaries
+$yellow : #febc17;
+$orange : #ff7b40;
+$blue : #0241e1;
+$red : #cd3b24;
+$green : #3a903a;
+$gold : #cca793;
+
+// Functional
+$error : $red;
+$error-text : $white;
+$valid : $green;
+$warning : $orange;
+$information : $blue;
+
+// Theme
+
+$t-dark : #1C1B1B;
+$t-mid-dark : #312F2E;
+$t-mid : #4A4544; 
+//$t-light : #D6C2B8;
+$t-xxlight : #f0e5e0;
+$t-xlight : rgba($t-xxlight, .7);
+$t-light : rgba($t-xxlight, .5);
+$t-mid : rgba($t-xxlight, .25);
+$t-mid-dark : rgba($t-xxlight, .1);
+
+// Main Text
+$color-body : $t-dark;
+$color-base : $t-xxlight;
+$color-base-alt : $t-mid;
+
+// Brand colours
+$color-primary : #B44A2E;
+$color-primary-text : $color-base;
+$color-secondary : false;
+$color-secondary-text : false;
+$color-tertiary : false;
+$color-tertiary-text : false;
+$color-quaternary : false;
+$color-tertiary-text : false;
+
+// Highlight
+$color-highlight : $color-primary;
+$color-highlight-text : $color-primary-text;
+
+// Headings
+$color-heading : $color-base;
+$color-heading-alt : $color-base-alt;
+
+// Borders
+$color-border : $color-base;
+
+// Forms
+$color-label : currentColor;
+$color-input-bg : $color-body;
+$color-input-bg-respond : $t-xlight;
+$color-input-border : $color-border;
+
+// Links
+$color-link: $t-xlight;
+$color-link-respond: #fff;
+
+// Header
+$color-header : $color-body;
+$color-header-text: $color-base;
+// Footer
+$color-footer : $color-body;
+$color-footer-text: $color-base;
+
+// Buttons
+//$color-button : linear-gradient(to right, transparent 0%, $t-tertiary 30%, $t-secondary 60%);
+$color-button :  $color-base;
+$color-button-respond : $color-body;
+$color-button-text : $color-body;
+$color-button-text-respond : $color-base;
+$color-button-alt : $color-primary;
+$color-button-alt-respond :  $color-secondary;
+$color-button-alt-text : $color-primary-text;
+$color-button-alt-text-respond : $color-primary-text;
+

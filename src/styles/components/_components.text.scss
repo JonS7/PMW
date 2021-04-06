@@ -1,0 +1,49 @@
+//Passages of text
+
+.subhead {
+  margin: .25rem 0 0;
+  @media (max-width: $bp_xxs) {
+    font-size: var(--ms-size_-1)
+  }
+}
+
+.typeset li {
+  margin: 0 0 1rem;
+}
+
+.section-body {
+  @media (min-width: $bp_med_large) {
+    font-size: var(--ms-size_2);
+  }
+}
+
+
+.-hr .gi {
+  //border-top: 1px solid $t-mid;
+  margin: 0;
+
+  hr {
+    height: .3rem;
+    margin: 0 0 1.5rem;
+    border-top: 1px solid #fff;
+    border: 0;
+    background: linear-gradient(to bottom, $t-light 33%, $color-body 33%, $color-body 80%, $t-mid 80%, $t-mid);
+    display: block;
+  }
+}
+
+.-hr .gi:nth-child(even) {
+  
+  hr {
+    margin-bottom: 2.75rem;
+  }
+
+  @media (max-width: $grid_mode_max) {
+    hr {
+      display: none;
+    }
+    margin-bottom: .5rem;
+  }
+}
+
+

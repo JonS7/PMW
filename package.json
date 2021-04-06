@@ -36,6 +36,7 @@
     "postcss-sort-media-queries": "^3.6.5"
   },
   "dependencies": {
+    "@jamshop/eleventy-plugin-esbuild": "^1.0.2",
     "fast-glob": "^3.2.5"
   }
 }

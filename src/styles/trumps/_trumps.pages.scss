@@ -1,0 +1,76 @@
+.home .Site-logo {
+  @media (min-width: $hero_layout_mode) {
+    transform: translateY(calc(50vh - 50%)) scale(2);
+   // transform: translateY(calc(50vh - 50%));
+    transform-origin: 0 50%;
+    //font-size: 2vw;
+  }
+}
+/*
+.Home .S-hero::before {
+  background-image: url(../images/pestle@1600_sepia.png);
+  background-size: 90% auto;
+  background-position: right -19% top;
+  background-blend-mode: lighten;
+  opacity: .75;
+
+  @media (min-width: $grid_mode) {
+    background-position: right -19% center;
+    background-size: 75% auto;
+  }
+}
+*/
+
+.home .S-hero {
+  overflow: hidden;
+  @media (min-width: $hero_layout_mode) {
+    min-height: 100vh;
+  }
+}
+
+.home .S-hero_media {
+  position: relative;
+
+  img {
+    @media (min-width: $grid_overlay_mode) {
+     // padding-left: 20%;
+      display: block;
+      opacity: .75;
+      transform: translate(15%, -15%);
+      //transform-origin: 50% 100%;
+    }
+
+    @media (min-width: $hero_layout_mode) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-30%, -50%);
+    }
+  }
+
+  
+}
+
+.home .S-hero_text {
+  max-width: 15em;
+  //padding: 30% 0;
+
+  @media (min-width: $grid_overlay_mode)  {
+    max-width: 12em;
+    transform: translateY(-50%);
+  }
+
+  @media (min-width: $hero_layout_mode) {
+    transform: translateX(7rem);
+    align-self: center;
+  }
+
+  @media (min-width: $bp_xxl) {
+    max-width: 15em;
+    transform: translateX(5rem);
+  }
+
+  @media (min-width: $bp_xxxl) {
+    transform: translateX(0);
+  }
+}

@@ -1,21 +1,19 @@
-const
-  dev = global.dev  = (process.env.ELEVENTY_ENV === 'development');
-  // Import fast-glob package
-//fg = require('fast-glob'),
+const dev = global.dev  = (process.env.ELEVENTY_ENV === 'development');
+//const pluginESbuild = require('@jamshop/eleventy-plugin-esbuild');
 
-// Run search for images 
-//logoImages = fg.sync(['**/client-logos/*', '!**/build']);
 
   // 11ty configuration
 module.exports = config => {
 
 
-//Create collection of gallery images
- // config.addCollection('logos', function(collection) {
- //   return logoImages;
- // });
-
   /* --- PLUGINS --- */
+
+  /*config.addPlugin(pluginESbuild, {
+    entryPoints: {
+      main: 'src/scripts/index.js'
+    },
+    output: '_site/scripts'
+  });*/
 
   // navigation
   config.addPlugin( require('@11ty/eleventy-navigation') );
@@ -29,11 +27,16 @@ module.exports = config => {
 
   //config.addPassthroughCopy('src/images');
   config.addPassthroughCopy('src/fonts');
+  config.addPassthroughCopy('src/scripts');
 
 
   // CSS processing
   config.addTransform('postcss', require('./lib/transforms/postcss'));
-  config.addWatchTarget('./src/scss/');
+  config.addWatchTarget('./src/styles/');
+
+  config.addWatchTarget('./src/scripts/');
+
+  config.addWatchTarget('./src/images/**/*.svg');
 
   
 

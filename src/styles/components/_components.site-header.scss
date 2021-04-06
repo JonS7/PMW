@@ -1,0 +1,47 @@
+/* Header */
+
+.Site-header {
+  @media (max-width: $bp_xxs) {
+    font-size: var(--ms-size_-1)
+  }
+
+  /*@media (min-width: $fixed_header_mode) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }*/
+}
+
+
+.hamburger {
+  width: 3.5rem;
+  height: 3.5rem;
+  line-height: 0;
+  left: auto;
+  right: 0;
+}
+
+.Site-logo {
+  box-sizing: content-box;
+  position: relative;
+  width: 3.5em;
+  height: 3.395em;
+  fill: $color-body;
+  display: block;
+  padding: 1em;
+  background: $color-base;
+  z-index: 9999;
+  
+}
+
+@media (min-width: $menu_mode) {
+  .hamburger {
+    display: none;
+  }
+}
+
+.Site-nav {
+
+}
