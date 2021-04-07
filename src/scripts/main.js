@@ -108,6 +108,7 @@ function map() {
   // add animations and labels to the timeline
   tl.from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
     .from(".map text", {autoAlpha: 0, stagger: 0.1})
+    .from(".map circle", {autoAlpha: 0})
     .from(".agency-logo", {autoAlpha: 0, scale: 0, stagger: 0.1})
     .addLabel("end");
 }
