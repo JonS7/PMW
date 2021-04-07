@@ -38,8 +38,8 @@ function updateClasses(data) {
 
 function marquees() {
   const target = document.getElementById('areas');
-  const marquee = document.querySelector('.marquee__inner');
-  const marquee_style = getComputedStyle(document.getElementById('areas'));
+  const marquee = target.querySelector('.marquee__inner');
+  const marquee_style = getComputedStyle(target);
   let itemCount = marquee_style.getPropertyValue("--no_items");
   let itemDisplay = marquee_style.getPropertyValue("--item-display");
   let itemWidth = 100 / itemDisplay;
@@ -63,6 +63,9 @@ function marquees() {
   console.log(itemWidth);
   console.log("offset"+target.offsetTop);
 
+  //scrollTrigger.refresh();
+
+
   let tl = gsap.timeline({
       ease: 'power2.inOut',
       scrollTrigger: {
@@ -76,7 +79,8 @@ function marquees() {
         scrub: true,
         pin: true,
         //anticipatePin: 10,
-        pinSpacing: false 
+        pinSpacing: false,
+        markers: true
       }
     });
 
@@ -233,9 +237,24 @@ function expEnterAnimation(next) {
 */
 
 
+barba.hooks.beforeLeave((data) => {
+  const scrollElement = window.document.scrollingElement || window.document.body || window.document.documentElement;
+  gsap.to(scrollElement, {scrollTop: 0, duration: opacityDuration, ease:'power2.inOut'})
+  //ScrollTrigger.getAll().forEach(t => t.kill());
+  //ScrollTrigger.refresh();
+});
+
 barba.hooks.beforeEnter( (data) => {
     updateClasses(data);
+//ScrollTrigger.refresh();
+
 });
+
+barba.hooks.afterEnter( (data) => {
+
+
+});
+
 
 
 barba.init({
@@ -249,8 +268,12 @@ barba.init({
     async leave(data) {
       const leave = await fadeOut(data);
       return leave;
+      //data.current.container.remove();
     },
-    enter(data) {
+    /*async beforeEnter(data) {
+        ScrollTrigger.getAll().forEach(t => t.kill());
+      },*/
+    async enter(data) {
       fadeIn(data);
     }
   },
@@ -272,7 +295,7 @@ barba.init({
       const leave = await gridLeaveAnimation(current);
       return leave;
     },
-    enter(next) {
+    async enter(next) {
       gridEnterAnimation(next);
     }
   },
@@ -287,9 +310,14 @@ barba.init({
     async leave(current) {
       const leave = await gridLeaveAnimation(current);
       return leave;
+      //data.current.container.remove();
     },
-    enter(data) {
+    /*async beforeEnter(data) {
+        ScrollTrigger.getAll().forEach(t => t.kill());
+      },*/
+    async enter(data) {
       fadeIn(data);
+      //ScrollTrigger.refresh();
     }
   },
   {
@@ -300,11 +328,11 @@ barba.init({
         'services'
       ]
     },
-    async leave(data) {
+    /*async leave(data) {
       const leave = await fadeOut(data);
       return leave;
-    },
-    enter(next) {
+    },*/
+    async enter(next) {
       gridEnterAnimation(next);
     }
   }
@@ -313,6 +341,8 @@ barba.init({
     namespace: 'experience',
     afterEnter() {
       // do something before entering the `contact` namespace
+      //ScrollTrigger.getAll().forEach(t => t.kill());
+      //ScrollTrigger.refresh();
       marquees();
       map();
       circles();
