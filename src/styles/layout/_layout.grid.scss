@@ -36,12 +36,21 @@
 
 .g.-wall {
   --gap: 1rem;
-  width: 20vw;
+  
   grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
-  grid-template-columns: 1fr 1fr 1fr;
-  position: absolute;
-  left: 50%;
-  bottom: var(--s_row);
+
+  &.client-logos {
+    grid-column: 1/-1;
+  }
+  
+
+  &.agency-logos {
+    width: 20vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: absolute;
+    left: 50%;
+    bottom: var(--s_row);
+  }
 
   .gi {
     padding: .25vw;

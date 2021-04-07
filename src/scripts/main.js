@@ -80,7 +80,7 @@ function marquees() {
         pin: true,
         //anticipatePin: 10,
         pinSpacing: false,
-        markers: true
+        //markers: true
       }
     });
 
