@@ -37,6 +37,16 @@ barbaNamespace: experience
     <img src="/images/map.svg" width="1815" height="857"  alt="" inline>
   </div>
 
+
+    <ul class="g -wall">
+
+      {% for logo in agency-logos %}
+        <li class="agency-logo gi f ai-c jc-c"><img src="/images/{{ logo.name }}" alt="" /></li>
+      {% endfor %}
+
+    </ul>
+
+
 </div>
 
 <div class="lc S-c2a typeset f jc-c">
@@ -49,22 +59,7 @@ barbaNamespace: experience
  
 </div>
 
-<div class="S-logos scroller-wrap marquee" style="--no_items:{{ agency-logos.length }}">
 
-    <ul class="scroller g -overflow font-mono marquee__inner" >
-
-      {% for logo in agency-logos %}
-        <li class="gi f ai-c jc-c"><img src="/images/{{ logo.name }}" alt="" /></li>
-      {% endfor %}
-
-      {% for logo in agency-logos %}
-        <li class="gi f ai-c jc-c"><img src="/images/{{ logo.name }}" alt="" /></li>
-      {% endfor %}
-
-    </ul>
-
-
-</div>
 
 
 

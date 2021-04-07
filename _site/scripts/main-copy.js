@@ -72,10 +72,10 @@ function marquees() {
         //start: "top "+areasOffset,
         start: "top 60%",
         endTrigger: ".map",
-        end: "bottom top",
-        scrub: true,
+        end: "bottom 10%",
+        scrub: 0.2,
         pin: true,
-        //anticipatePin: 10,
+        anticipatePin: 1,
         pinSpacing: false 
       }
     });
@@ -94,17 +94,14 @@ function map() {
         pin: true,   // pin the trigger element while active
         start: "center center", // when the top of the trigger hits the top of the viewport
         end: "center top", // end after scrolling 500px beyond the start
-        scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        scrub: .2, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
         snap: "labels",
-        anticipatePin: 2,
-       
       }
     });
 
   // add animations and labels to the timeline
   tl.from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
     .from(".map text", {autoAlpha: 0, stagger: 0.1})
-    .from(".agency-logo", {autoAlpha: 0, scale: 0, stagger: 0.1})
     .addLabel("end");
 }
 

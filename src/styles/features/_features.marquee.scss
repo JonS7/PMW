@@ -79,6 +79,7 @@ ul.scroller {
 }
 
 .marquee__inner {
+    --gap: 1rem;
     grid-auto-columns: calc(var(--item-width) - var(--gap));
     //animation: marquee 10s linear infinite;
     //animation-play-state: paused;

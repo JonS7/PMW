@@ -1,27 +1,18 @@
 
 $orbital-outline :  var(--ms-size_4);
-//$item-width : 20%;
-//$item-count : 12;
+
 
 .orbitals-wrap {
   position: relative
 }
 
 .S-areas {
-  --gap: 1rem;
   overflow: hidden;
-  padding: $orbital-outline 0;
-
+  padding: $orbital-outline 0 0;
   align-items: start;
-    //justify-content: start;
-  //position: absolute;
 
-  .scroller {
-
-  }
-
-  & + .S-map {
-   // margin-top: -20vw;
+  + .S-c2a {
+    padding-top: 0;
   }
 }
 
@@ -32,25 +23,6 @@ $orbital-outline :  var(--ms-size_4);
 }
 
 
-.S-map {
-  padding: 0;
-  z-index: 99;
-  position: relative;
-  //margin-top: -20vw;
-
- 
-
-  .lc {
-
-    @media (max-width: $grid_overlay_mode_max) {
-      padding-top: 0;
-    }
-    
-  }
-
-  
-}
-
 .map {
    .-is-bg {
     z-index: -1;
@@ -60,6 +32,8 @@ $orbital-outline :  var(--ms-size_4);
     height: 100%;
   }
 }
+
+
 
 
 .encircle {
