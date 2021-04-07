@@ -1,6 +1,8 @@
 .home .Site-logo {
   @media (min-width: $hero_layout_mode) {
-    transform: translateY(calc(50vh - 50%)) scale(2);
+    transform: translate3d(0,calc(50vh - 50%),0) scale(2);
+    transition-timing-function: ease-out;
+    transition-duration: .3s;
    // transform: translateY(calc(50vh - 50%));
     transform-origin: 0 50%;
     //font-size: 2vw;
@@ -49,6 +51,14 @@
   }
 
   
+}
+
+@media (min-width: $hero_layout_mode) {
+  .home .Site-header {
+    position: absolute;
+    width: 100%;
+    z-index: 99999;
+  }
 }
 
 .home .S-hero_text {

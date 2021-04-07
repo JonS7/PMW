@@ -36,30 +36,17 @@
 
 .g.-wall {
   --gap: 1rem;
-  
-  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
-
-  &.client-logos {
-    grid-column: 1/-1;
-  }
-  
-
-  &.agency-logos {
-    width: 20vw;
-    grid-template-columns: 1fr 1fr 1fr;
-    position: absolute;
-    left: 50%;
-    bottom: var(--s_row);
-  }
-
-  .gi {
-    padding: .25vw;
-    background: $color-base;
-
-    img {
-      //filter: grayscale(100%);
-      //mix-blend-mode: luminosity;
-    }
-  }
 }
 
+.g.agency-logos {
+  width: 20vw;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: absolute;
+  left: 50%;
+  bottom: var(--s_row);
+}
+
+.gi.-has-bg {
+  padding: .25vw;
+  background: $color-base;
+}

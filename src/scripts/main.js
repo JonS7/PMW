@@ -38,7 +38,7 @@ function updateClasses(data) {
 
 function marquees() {
   const target = document.getElementById('areas');
-  const marquee = target.querySelector('.marquee__inner');
+  const marquee = target.querySelector('.marquee-inner');
   const marquee_style = getComputedStyle(target);
   let itemCount = marquee_style.getPropertyValue("--no_items");
   let itemDisplay = marquee_style.getPropertyValue("--item-display");

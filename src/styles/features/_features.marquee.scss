@@ -24,7 +24,7 @@ ul.scroller {
     --item-width : calc(100% / var(--item-display));
     --move-initial: 0;
 
-    &.S-logos {
+    &.S-clients {
         --item-display: 4;
 
         @media (min-width: $bp_xxxs) {
@@ -78,17 +78,16 @@ ul.scroller {
 
 }
 
-.marquee__inner {
+.marquee-inner {
     --gap: 1rem;
     grid-auto-columns: calc(var(--item-width) - var(--gap));
     //animation: marquee 10s linear infinite;
     //animation-play-state: paused;
 
-}
+    .S-clients & {
+      animation: marquee 10s linear infinite;
+    }
 
-
-.marquee:hover .marquee__inner {
-    //animation-play-state: running;
 }
 
 @keyframes marquee {
