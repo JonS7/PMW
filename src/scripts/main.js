@@ -25,7 +25,7 @@ function updateClasses(data) {
       currentItem.classList.remove( currentClass );
     }
     if (nextPath !== '/') {
-      nextItem.parentNode.classList.add( currentClass );
+      nextItem.classList.add( currentClass );
     }
   }
 
@@ -246,7 +246,7 @@ barba.hooks.beforeLeave((data) => {
 });
 
 barba.hooks.beforeEnter( (data) => {
-    updateClasses(data);
+   updateClasses(data);
 //ScrollTrigger.refresh();
 
 });
@@ -329,10 +329,10 @@ barba.init({
         'services'
       ]
     },
-    /*async leave(data) {
+    async leave(data) {
       const leave = await fadeOut(data);
       return leave;
-    },*/
+    },
     async enter(next) {
       gridEnterAnimation(next);
     }

@@ -1,6 +1,6 @@
 {% include "partials/htmlhead.njk" %}
 
-<header id="Site-header" class="Site-header f jc-sb ai-c">
+<header id="Site-header" class="Site-header">
 
   <div id="pmwLogoWrap" class="pmw-logo-wrap">
     <a href="/" class="Site-logo">
@@ -8,9 +8,9 @@
     </a>
   </div>
 
-  <nav class="Site-nav ltr-sp">
+
     {% navlist collections.all | eleventyNavigation, page, 1 %}
-  </nav>
+
 
 </header>
 

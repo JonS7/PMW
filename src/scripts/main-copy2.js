@@ -25,7 +25,7 @@ function updateClasses(data) {
       currentItem.classList.remove( currentClass );
     }
     if (nextPath !== '/') {
-      nextItem.classList.add( currentClass );
+      nextItem.parentNode.classList.add( currentClass );
     }
   }
 
@@ -246,7 +246,7 @@ barba.hooks.beforeLeave((data) => {
 });
 
 barba.hooks.beforeEnter( (data) => {
-   updateClasses(data);
+    updateClasses(data);
 //ScrollTrigger.refresh();
 
 });

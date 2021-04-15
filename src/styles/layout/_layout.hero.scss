@@ -1,26 +1,4 @@
 
-
-.S-hero {
-  
-  
-  &:only-child {
-   // height: 100%;
-   flex: 1;
-   align-self: center;
-  }
-  
-  /*&::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: $color-body;
-    background-repeat: no-repeat;
-  }*/
-}
-
 .S-hero_media {
   background-color: $color-body;
 

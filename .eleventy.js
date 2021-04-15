@@ -35,6 +35,7 @@ module.exports = config => {
   config.addWatchTarget('./src/styles/');
 
   config.addWatchTarget('./src/scripts/');
+    config.addWatchTarget('./lib/**/*.js');
 
   config.addWatchTarget('./src/images/**/*.svg');
 

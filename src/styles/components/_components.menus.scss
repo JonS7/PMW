@@ -2,33 +2,63 @@
 
 
 .Site-nav {
-
-  ul {
+    //flex: 1;
+    //background: rgba(255, 255, 255, .1);
     list-style: none;
-    display: flex;
-  }
- 
-  li {
-    font: $regular 1em $font-mono;
-    text-transform: uppercase;
-    margin: 0 1em 0 0;
+    //display: flex;
+    margin-left: 2px;
+    display: grid;
+    grid-gap: 2px;
+    grid: 1fr 1fr/1fr 1fr;
 
-    &:first-child {
-      display: none;
-    }
     
-  }
 
-  a {
-    text-decoration: none;
 
-    @include link-styles {
-      //color: $color-link;
+    a {
+        font: $regular 1em $font-mono;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: right;
+        padding-right: .5rem;
+        background: $color-base;
+        color: $color-body;
+        text-decoration: none;
+
+        &:first-child {
+            display: none;
+        }
+
+        @include link-styles {
+          background: rgba(#{$color-base},.7);
+        }
     }
-  }
 
-  .active {
-      text-decoration: underline;
+    
+
+    @media (min-width: $menu_mode) {
+      display: flex;
+      margin-left: auto;
+      align-items: center;
+
+
+      a {
+        //display: inline-block;
+        padding: 0 .08em 0 .2em;
+        margin: 0 1.8rem 0 0;
+        background: rgba(#{$color-base},0);
+        color: $color-base;
+
+        @include link-styles {
+          background: rgba(#{$color-base},1);
+          color: $color-body;
+        }
+
+        &.active {
+            color: rgba(240,229,224,.5);
+            background: rgba(#{$color-base},0);
+        }
+      }
     }
 }
-

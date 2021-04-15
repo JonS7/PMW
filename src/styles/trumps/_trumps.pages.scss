@@ -1,30 +1,26 @@
-.home .Site-logo {
-  @media (min-width: $hero_layout_mode) {
+
+@media (min-width: $hero_layout_mode) {
+  .home .Site-header {
+    position: absolute;
+    width: 100%;
+    z-index: 99999;
+  }
+  
+  .home .Site-logo {
     transform: translate3d(0,calc(50vh - 50%),0) scale(2);
     transition-timing-function: ease-out;
     transition-duration: .3s;
-   // transform: translateY(calc(50vh - 50%));
     transform-origin: 0 50%;
-    //font-size: 2vw;
   }
 }
-/*
-.Home .S-hero::before {
-  background-image: url(../images/pestle@1600_sepia.png);
-  background-size: 90% auto;
-  background-position: right -19% top;
-  background-blend-mode: lighten;
-  opacity: .75;
 
-  @media (min-width: $grid_mode) {
-    background-position: right -19% center;
-    background-size: 75% auto;
-  }
+.home .Site-main {
+  justify-content: center;
 }
-*/
 
 .home .S-hero {
   overflow: hidden;
+
   @media (min-width: $hero_layout_mode) {
     min-height: 100vh;
   }
@@ -35,11 +31,9 @@
 
   img {
     @media (min-width: $grid_overlay_mode) {
-     // padding-left: 20%;
       display: block;
       opacity: .75;
       transform: translate(15%, -15%);
-      //transform-origin: 50% 100%;
     }
 
     @media (min-width: $hero_layout_mode) {
@@ -49,21 +43,10 @@
       transform: translate(-30%, -50%);
     }
   }
-
-  
-}
-
-@media (min-width: $hero_layout_mode) {
-  .home .Site-header {
-    position: absolute;
-    width: 100%;
-    z-index: 99999;
-  }
 }
 
 .home .S-hero_text {
   max-width: 15em;
-  //padding: 30% 0;
 
   @media (min-width: $grid_overlay_mode)  {
     max-width: 12em;
@@ -72,7 +55,6 @@
 
   @media (min-width: $hero_layout_mode) {
     transform: translateX(7rem);
-    align-self: center;
   }
 
   @media (min-width: $bp_xxl) {

@@ -5,6 +5,14 @@
     font-size: var(--ms-size_-1)
   }
 
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  @media (min-width: $menu_mode) {
+    display: flex;
+    justify-content: space-between;
+  }
+
   /*@media (min-width: $fixed_header_mode) {
     position: absolute;
     top: 0;
@@ -40,8 +48,4 @@
   .hamburger {
     display: none;
   }
-}
-
-.Site-nav {
-
 }
