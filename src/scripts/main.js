@@ -1,4 +1,18 @@
 gsap.set(".Site", {autoAlpha:1});
+
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// We listen to the resize event
+window.addEventListener('resize', () => {
+  // We execute the same script as before
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
+
 let opacityDuration = .3;
 
 function updateClasses(data) {
@@ -26,52 +40,89 @@ function updateClasses(data) {
 
 
 function marquees() {
-  const target = document.getElementById('areas');
-  const marquee = target.querySelector('.marquee-inner');
-  const marquee_style = getComputedStyle(target);
-  let itemCount = marquee_style.getPropertyValue("--no_items");
-  let itemDisplay = marquee_style.getPropertyValue("--item-display");
-  let itemWidth = 100 / itemDisplay;
-  let moveFinal = itemCount * itemWidth * -1 - 50;
-  //scrollTrigger.refresh();
+  
+  ScrollTrigger.matchMedia({
+    "(min-width: 768px)": function() {
 
-  let tl = gsap.timeline({
-      ease: 'power2.inOut',
-      scrollTrigger: {
-        trigger: marquee,
-        start: "top 60%",
-        endTrigger: ".map",
-        end: "bottom top",
-        scrub: true,
-        pin: true,
-        pinSpacing: false,
-      }
-    });
+      const target = document.getElementById('areas');
+      const marquee = target.querySelector('.marquee-inner');
+      const marquee_style = getComputedStyle(target);
+      let itemCount = marquee_style.getPropertyValue("--no_items");
+      let itemDisplay = marquee_style.getPropertyValue("--item-display");
+      let itemWidth = 100 / itemDisplay;
+      let moveFinal = itemCount * itemWidth * -1 - 50;
+      //scrollTrigger.refresh();
 
-  tl.to(marquee, {xPercent: moveFinal})
+      let tl = gsap.timeline({
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: marquee,
+            start: "top 60%",
+            endTrigger: ".map",
+            end: "bottom top",
+            scrub: true,
+            pin: true,
+            pinSpacing: false,
+          }
+        });
+
+
+      tl.to(marquee, {xPercent: moveFinal})
+    }
+  });
 }
 
 
 function map() {
-  let tl = gsap.timeline({
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".map",
-        pin: true,
-        start: "center center", 
-        end: "center top",
-        scrub: true,
-        snap: "labels",
-        anticipatePin: 2,
-      }
-    });
 
-  // add animations and labels to the timeline
-  tl.from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
-    .from(".map text", {autoAlpha: 0, stagger: 0.1})
-    .from(".map circle", {autoAlpha: 0})
-    .from(".agency-logo", {autoAlpha: 0, scale: 0, stagger: 0.1})
-    .addLabel("end");
+  ScrollTrigger.matchMedia({
+    "(max-width: 767px)": function() {
+
+      let tl = gsap.timeline({
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".Site",
+          pin: false,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 2
+          //snap: "labels",
+        }
+      });
+
+      //gsap.set('.map text, .map circle', {autoAlpha: 0});
+      //gsap.from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.1})
+      // add animations and labels to the timeline
+      tl.to(".map", {xPercent: -75,}, 0)
+        .addLabel("end");
+    }
+  });
+  
+
+  ScrollTrigger.matchMedia({
+    "(min-width: 768px)": function() {
+
+      let tl = gsap.timeline({
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".map",
+          pin: true,
+          start: "center center", 
+          end: "center top",
+          scrub: true,
+          snap: "labels",
+          anticipatePin: 2,
+        }
+      });
+      // add animations and labels to the timeline
+      tl.from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
+        .from(".map text", {autoAlpha: 0, stagger: 0.1})
+        .from(".map circle", {autoAlpha: 0})
+        .from(".agency-logo", {autoAlpha: 0, scale: 0, stagger: 0.1})
+        .addLabel("end");
+    }
+  });
+  
 }
 
 function circles() {

@@ -6,72 +6,102 @@ $orbital-outline :  var(--ms-size_4);
   position: relative
 }
 
+.S-c2a {
+   @media (max-width: 767px) {
+    justify-content: start;
+  }
+}
+
 .S-areas {
   overflow: hidden;
-  padding: $orbital-outline 0 0;
   align-items: start;
 
-  + .S-c2a {
-    padding-top: 0;
+  @media (min-width: 768px) {
+    padding: $orbital-outline 0 0;
+
+    + .S-c2a {
+      padding-top: 0;
+    }
   }
+  
 }
 
 .S-clients {
   padding-bottom:  var(--s_row);
-  //padding: 1rem 0;
-  //background: $color-base;
-
 }
 
 
 .map {
-   .-is-bg {
+  .-is-bg {
     z-index: -1;
   }
   svg {
     width: 100%;
     height: 100%;
   }
+
+  @media (max-width: 767px) {
+    pointer-events: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    //bottom: 0;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    transform-origin: 0 0;
+
+    svg {
+      width: auto;
+      height: calc(var(--vh, 1vh) * 100);
+    }
+    //transform: scale(4);
+  }
 }
-
-
 
 
 .encircle {
   font-weight: $light;
   font-size: var(--ms-size_2);
-  width: 100%;
-  background: $color-base;
-  color: $color-body;
-  padding: 10%;
-  border-radius: 50%;
-  position: relative;
-  text-align: center;
-
-  &::before, &::after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-  }
-
-  span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  padding: 0 0 0 var(--gutter);
+  
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    padding: var(--gap);
-    //word-wrap: break-word;
-  }
-
-  &::after {
-    position: absolute;
-    top: calc(#{$orbital-outline} * -1);
-    left: calc(#{$orbital-outline} * -1);
-    right: calc(#{$orbital-outline} * -1);
-    bottom: calc(#{$orbital-outline} * -1);
+    background: $color-base;
+    color: $color-body;
+    padding: 10%;
     border-radius: 50%;
-    border: 1px solid $t-light;
+    position: relative;
+    text-align: center;
+
+    &::before, &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      padding: var(--gap);
+      //word-wrap: break-word;
+    }
+
+    &::after {
+      position: absolute;
+      top: calc(#{$orbital-outline} * -1);
+      left: calc(#{$orbital-outline} * -1);
+      right: calc(#{$orbital-outline} * -1);
+      bottom: calc(#{$orbital-outline} * -1);
+      border-radius: 50%;
+      border: 1px solid $t-light;
+    }
   }
 
 }
+

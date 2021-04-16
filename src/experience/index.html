@@ -18,12 +18,12 @@ barbaNamespace: experience
 </div>
 
 
-<div id="areas" class="S-areas orbitals scroller-wrap marquee g -overlay" style="--no_items:{{ areas.length }}">
+<div id="areas" class="S-areas marquee g -overlay" style="--no_items:{{ areas.length }}">
 
-    <ul class="g -overflow font-mono marquee-inner">
+    <ul class="g -overflow font-mono marquee-inner orbitals">
 
         {% for area in areas %}
-          <li class="gi encircle f ai-c jc-c"><span>{{ area }}</span></li>
+          <li class="gi encircle"><span>{{ area }}</span></li>
         {% endfor %}
 
     </ul>
