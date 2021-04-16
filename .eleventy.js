@@ -29,23 +29,17 @@ module.exports = config => {
   config.addPassthroughCopy('src/fonts');
   config.addPassthroughCopy('src/scripts');
 
-
   // CSS processing
   config.addTransform('postcss', require('./lib/transforms/postcss'));
+
   config.addWatchTarget('./src/styles/');
-
   config.addWatchTarget('./src/scripts/');
-    config.addWatchTarget('./lib/**/*.js');
-
+  config.addWatchTarget('./lib/**/*.js');
   config.addWatchTarget('./src/images/**/*.svg');
 
-  
 
   // minify HTML
   //config.addTransform('htmlminify', require('./lib/transforms/htmlminify'));
-
-  
-
 
 
   // 11ty defaults

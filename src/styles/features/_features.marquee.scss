@@ -5,12 +5,7 @@ $item-count : 12;
     width: 100vw;
 }
 
-ul.scroller {
-    list-style: none;
-}
-
 .marquee {
-
     position: relative;
     overflow: hidden;
 
@@ -81,8 +76,6 @@ ul.scroller {
 .marquee-inner {
     --gap: 1rem;
     grid-auto-columns: calc(var(--item-width) - var(--gap));
-    //animation: marquee 10s linear infinite;
-    //animation-play-state: paused;
 
     .S-clients & {
       animation: marquee 10s linear infinite;

@@ -1,11 +1,5 @@
 gsap.set(".Site", {autoAlpha:1});
-
 let opacityDuration = .3;
-
-const logoWrap = document.getElementById('pmwLogoWrap');
-const logo = document.getElementById('pmwLogo');
-
-
 
 function updateClasses(data) {
   let bodyClass = document.body.className;
@@ -28,11 +22,6 @@ function updateClasses(data) {
       nextItem.classList.add( currentClass );
     }
   }
-
-//console.log(currentClass);
-//console.log(currentItem);
-//console.log(nextItem);
-//console.log(nextBodyClass);
 }
 
 
@@ -44,64 +33,36 @@ function marquees() {
   let itemDisplay = marquee_style.getPropertyValue("--item-display");
   let itemWidth = 100 / itemDisplay;
   let moveFinal = itemCount * itemWidth * -1 - 50;
-
-  let areasOffset = target.offsetTop;
-  const marqueeHeight = marquee.offsetHeight;
-  const headerHeight = document.getElementById('Site-header').offsetHeight;
-
-  /*
-  if(areasOffset + headerHeight + marqueeHeight >= window.innerHeight) {
-    areasOffset = areasOffset - marqueeHeight
-  }
-  */
-
-
-  //console.log(s_areas_style);
-  console.log(marquee_style);
-  console.log(itemCount);
-  console.log(itemDisplay);
-  console.log(itemWidth);
-  console.log("offset"+target.offsetTop);
-
   //scrollTrigger.refresh();
-
 
   let tl = gsap.timeline({
       ease: 'power2.inOut',
       scrollTrigger: {
         trigger: marquee,
-        //start: "bottom bottom-=50px",
-        //start: "top " + target.offsetTop + "-10px",
-        //start: "top "+areasOffset,
         start: "top 60%",
         endTrigger: ".map",
         end: "bottom top",
         scrub: true,
         pin: true,
-        //anticipatePin: 10,
         pinSpacing: false,
-        //markers: true
       }
     });
 
   tl.to(marquee, {xPercent: moveFinal})
-    //.to(".S-areas .marquee__inner", {opacity: 0})
-
 }
-//marquees();
+
+
 function map() {
   let tl = gsap.timeline({
-      // yes, we can add it to an entire timeline!
       ease: "none",
       scrollTrigger: {
         trigger: ".map",
-        pin: true,   // pin the trigger element while active
-        start: "center center", // when the top of the trigger hits the top of the viewport
-        end: "center top", // end after scrolling 500px beyond the start
-        scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        pin: true,
+        start: "center center", 
+        end: "center top",
+        scrub: true,
         snap: "labels",
         anticipatePin: 2,
-       
       }
     });
 
@@ -140,63 +101,15 @@ function fadeIn(data) {
       });
 }
 
-
-/*
-gsap.from(".map text, .map circle", {
-  opacity: 0,
-  ease: "none",
-  stagger: 0.1,
-  scrollTrigger: {
-    trigger: ".map",
-    start: "top top",
-    //end: "right right",
-    scrub: false,
-    pin: true,
-    anticipatePin: 1,
-    pinSpacing: false
-    //horizontal: true
-  }
-});
-*/
-
-
-function preLoader() {
-
-  //https://codepen.io/Mamboleoo/pen/obWGYr
-  
-  gsap.set(logoWrap, { 
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: '#1C1B1B',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 9999
-
-  });
-  
-}
-
-
-function enterAnimation(next) {
-  //preLoader();
-}
-
 function gridLeaveAnimation(data) {
   const container = data.current.container;
   const gridItemHR = container.querySelectorAll('.text-grid hr');
   const gridItemText = container.querySelectorAll('.text-grid h2, .text-grid .section-body');
   const header = container.querySelector('.page-header');
-  
   gsap.set(gridItemHR, {transformOrigin: '0 0'})
   const tl = gsap.timeline({});
   tl.to([gridItemText,header], {autoAlpha: 0, duration: opacityDuration, ease: 'none'});
-  //tl.to(gridItemHR, {scaleY: 2, duration: .3});
   tl.to(gridItemHR, {scaleX: 0, duration: opacityDuration, ease:'power2.inOut'});
-
   return tl;
 }
 
@@ -205,37 +118,12 @@ function gridEnterAnimation(data) {
   const gridItemHR = container.querySelectorAll('.text-grid hr');
   const gridItemText = container.querySelectorAll('.text-grid h2, .text-grid .section-body');
   const header = container.querySelector('.page-header');
-  
   gsap.set(gridItemHR, {transformOrigin: '0 0'})
   const tl = gsap.timeline({});
   tl.from(gridItemHR, {scaleX: 0, duration: opacityDuration, ease:'power2.inOut'});
   tl.from([gridItemText,header], {autoAlpha: 0, duration: opacityDuration, ease: 'none'});
-
   return tl;
 }
-
-/*
-function expEnterAnimation(next) {
-  const container = next.container;
-  const circles = container.querySelectorAll('.encircle');
-  //const map = container.querySelectorAll('.map svg');
-  const header = container.querySelector('.S-text');
-
-  const tl = gsap.timeline({});
-  tl.from(header, {autoAlpha: 0, duration: opacityDuration, ease: 'none'});
-  //tl.from(map, {opacity: 0, duration: .5, ease: 'none'});
-  tl.from(circles, {
-      duration: opacityDuration * 2,
-      scale: 0, 
-      y: 60,
-      ease: "power1.inOut",
-      stagger: 0.1
-  }, "<");
-
-
-  return tl;
-}
-*/
 
 
 barba.hooks.beforeLeave((data) => {
@@ -247,16 +135,8 @@ barba.hooks.beforeLeave((data) => {
 
 barba.hooks.beforeEnter( (data) => {
    updateClasses(data);
-//ScrollTrigger.refresh();
-
+  //ScrollTrigger.refresh();
 });
-
-barba.hooks.afterEnter( (data) => {
-
-
-});
-
-
 
 barba.init({
   preventRunning: true,

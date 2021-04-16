@@ -30,9 +30,13 @@
 .g.-overflow {
   margin-right: calc(var(--gap) * -1);
   grid-auto-flow: column;
-  //grid-auto-columns: calc(#{$item-width} - var(--gap)); // in features
 }
 
+
+.gi.-has-bg {
+  padding: .5vw;
+  background: $color-base;
+}
 
 .g.-wall {
   --gap: 1rem;
@@ -44,9 +48,9 @@
   position: absolute;
   left: 50%;
   bottom: var(--s_row);
+
+  .gi.-has-bg {
+    padding: .25vw;
+  }
 }
 
-.gi.-has-bg {
-  padding: .25vw;
-  background: $color-base;
-}
