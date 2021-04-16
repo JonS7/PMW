@@ -179,15 +179,20 @@ function gridEnterAnimation(data) {
 
 barba.hooks.beforeLeave((data) => {
   const scrollElement = window.document.scrollingElement || window.document.body || window.document.documentElement;
+  ScrollTrigger.disable();
   gsap.to(scrollElement, {scrollTop: 0, duration: opacityDuration, ease:'power2.inOut'})
   //ScrollTrigger.getAll().forEach(t => t.kill());
-  //ScrollTrigger.refresh();
+  
 });
 
 barba.hooks.beforeEnter( (data) => {
-   updateClasses(data);
-  //ScrollTrigger.refresh();
+  updateClasses(data);
+  ScrollTrigger.refresh();
 });
+
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
 
 barba.init({
   preventRunning: true,

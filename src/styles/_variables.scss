@@ -62,8 +62,6 @@ putting the media-query variables at the top and then consuming those variables 
 
   @media (min-width: $bp_xs) {
     --scale: 1.25;
-    //--h1_size: var(--ms-size_9);
-    //--h2_size: var(--ms-size_6);
   }
 
   @media (min-width: $bp_small) {
@@ -72,24 +70,16 @@ putting the media-query variables at the top and then consuming those variables 
   }
 
   @media (min-width: $bp_small_med) {
-    //--scale: 1.333;
-    //--h1_size: var(--ms-size_8);
-    //--h2_size: var(--ms-size_5);
      --h1_size: var(--ms-size_9);
 
   }
 
   @media (min-width: $bp_med) {
-    //--s_row: var(--ms-size_7);
-    //--s_col: var(--ms-size_5);
     --gutter: var(--s_row);
 
   }
 
   @media (min-width: $bp_med_large) {
-    //--s_row: var(--ms-size_7);
-    //--s_col: var(--ms-size_5);
-    --gutter: var(--s_row);
     --scale: 1.333;
     --h1_size: var(--ms-size_8);
   }
@@ -100,10 +90,6 @@ putting the media-query variables at the top and then consuming those variables 
   }
 
   @media (min-width: $bp_xxl) {
-    //--s_row: var(--ms-size_9);
-    //--s_col: var(--ms-size_7);
-
-    //--scale: 1.414;
     --h1_size: var(--ms-size_9);
   }
 
@@ -115,7 +101,6 @@ putting the media-query variables at the top and then consuming those variables 
     --gutter: calc(50vw - calc(#{$max_width} / 2) + var(--s_row));
     --s_row: var(--ms-size_9);
     --s_col: var(--ms-size_7);
-    --h1_size: var(--ms-size_9);
     
   }
 }
