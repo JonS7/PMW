@@ -14,14 +14,13 @@
     animation: fadeOut .4s linear 2.6s forwards;
 
     .pmw {
-        text-transform: uppercase;
-        font-size: clamp(1rem, 1.5vw, 10rem);
-        letter-spacing: .2em;
+        width: 15rem;
+        width: clamp(15rem, 25vw, 50rem);
         animation: fadeInOut 1.3s linear forwards;
         opacity: 0;
     }
 
-    svg {
+    .waterfall {
         position: absolute;
         top: 0;
         left: 0;

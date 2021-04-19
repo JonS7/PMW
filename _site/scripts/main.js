@@ -91,10 +91,11 @@ function map() {
       });
 
       //gsap.set('.map text, .map circle', {autoAlpha: 0});
-      //gsap.from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.1})
-      // add animations and labels to the timeline
-      tl.to(".map", {xPercent: -75,}, 0)
-        .addLabel("end");
+      tl.from(".map .highlight", {fill: "rgba(240,229,224,.1)"})
+      .from(".map text", {autoAlpha: 0}, 0)
+      .from(".map circle", {autoAlpha: 0}, 0)
+      .to(".map", {xPercent: -75,}, 0)
+      .addLabel("end");
     }
   });
   
