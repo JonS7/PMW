@@ -180,7 +180,8 @@ function gridEnterAnimation(data) {
 
 barba.hooks.beforeLeave((data) => {
   const scrollElement = window.document.scrollingElement || window.document.body || window.document.documentElement;
-  ScrollTrigger.disable();
+  //ScrollTrigger.disable();
+  ScrollTrigger.getAll().forEach(ST => ST.disable());
   gsap.to(scrollElement, {scrollTop: 0, duration: opacityDuration, ease:'power2.inOut'})
   //ScrollTrigger.getAll().forEach(t => t.kill());
   
