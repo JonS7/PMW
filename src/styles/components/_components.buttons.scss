@@ -45,7 +45,7 @@ $enable-btn--has_icon:    false !default;
   background: $btn-background;
   color: $btn-color;
   display: inline-block;
-  font-weight: 300;
+  font-weight: $regular;
   font-family: $btn-font-family;
   outline: none;
   transition: $trans-fast;

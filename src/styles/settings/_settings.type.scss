@@ -23,14 +23,16 @@ $font-small: 75%;
   font-style: normal;
   font-weight: $regular;
   src: url("../fonts/Test Founders Grotesk/test-founders-grotesk-regular.woff") format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "FoundersGrotesk";
   font-style: normal;
   font-weight: $semi-bold;
   src: url("../fonts/Test Founders Grotesk/test-founders-grotesk-semibold.woff") format("woff");
+  font-display: swap;
 }
-@font-face {
+/*@font-face {
   font-family: "FoundersGroteskMono";
   font-style: normal;
   font-weight: $light;
@@ -47,12 +49,13 @@ $font-small: 75%;
   font-style: normal;
   font-weight: $medium;
   src: url("../fonts/Test Founders Grotesk Mono/test-founders-grotesk-mono-medium.woff") format("woff");
-}
+}*/
 @font-face {
   font-family: "FoundersGroteskMono";
   font-style: normal;
   font-weight: $regular;
   src: url("../fonts/Test Founders Grotesk Mono/test-founders-grotesk-mono-regular.woff") format("woff");
+  font-display: swap;
 }
 
 /* stylelint-disable */

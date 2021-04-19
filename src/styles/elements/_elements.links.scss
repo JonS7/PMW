@@ -5,7 +5,11 @@ a {
   transition: $trans-fast;
   position: relative;
 
-  .typeset &::after {
+  @include link-styles {
+    color: $color-link-respond;
+  }
+
+  /*.typeset &::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -18,23 +22,35 @@ a {
     transform: scaleY(.1);
     display: block;
     mix-blend-mode: difference;
+
+     display: none;
   }
 
   .typeset &.button::after {
-    top: 0;
-    background: $t-xxlight;
-    mix-blend-mode: unset;
     display: none;
-  }
+  }*/
 
 
+  .typeset &:not(.button) {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background-image: linear-gradient(to bottom, $color-link-respond, $color-link-respond);
+    background-size: 100% 10%;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size .3s;
 
-  @include link-styles {
-    color: $color-link-respond;
-
-    .typeset &::after {
-      transform: scaleY(1);
+    @include link-styles {
+      background-size: 100% 90%;
+      color: $color-link-respond;
+      span {
+        mix-blend-mode: difference;
+      }
     }
 
   }
+
+
+  
+
 }

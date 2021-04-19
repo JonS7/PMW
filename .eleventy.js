@@ -1,5 +1,26 @@
 const dev = global.dev  = (process.env.ELEVENTY_ENV === 'development');
-//const pluginESbuild = require('@jamshop/eleventy-plugin-esbuild');
+/*const Image = require("@11ty/eleventy-img");
+function imageShortcode(src, cls, alt, sizes, widths) {
+  let options = {
+    widths: widths,
+    formats: ['jpeg'],
+  };
+
+  // generate images, while this is async we don’t wait
+  Image(src, options);
+
+  let imageAttributes = {
+    class: cls,
+    alt,
+    sizes,
+    loading: "lazy",
+    decoding: "async",
+  };
+  // get metadata even the images are not fully generated
+  metadata = Image.statsSync(src, options);
+  return Image.generateHTML(metadata, imageAttributes);
+}
+*/
 
 
   // 11ty configuration
@@ -17,6 +38,10 @@ module.exports = config => {
 
   // navigation
   config.addPlugin( require('@11ty/eleventy-navigation') );
+
+  //config.addNunjucksShortcode("myImage", imageShortcode);
+  //config.addLiquidShortcode("myImage", imageShortcode);
+  //config.addJavaScriptFunction("myImage", imageShortcode);
 
   // inline assets
   config.addTransform('inline', require('./lib/transforms/inline'));
@@ -39,7 +64,7 @@ module.exports = config => {
 
 
   // minify HTML
-  //config.addTransform('htmlminify', require('./lib/transforms/htmlminify'));
+  config.addTransform('htmlminify', require('./lib/transforms/htmlminify'));
 
 
   // 11ty defaults

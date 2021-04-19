@@ -23,7 +23,8 @@ $orbital-outline :  var(--ms-size_4);
 }
 
 .S-clients {
-  padding-bottom:  var(--s_row);
+  margin-bottom:  var(--s_row);
+  background: $color-base;
 }
 
 
@@ -41,7 +42,6 @@ $orbital-outline :  var(--ms-size_4);
     position: fixed;
     left: 0;
     top: 0;
-    //bottom: 0;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     transform-origin: 0 0;
@@ -50,13 +50,12 @@ $orbital-outline :  var(--ms-size_4);
       width: auto;
       height: calc(var(--vh, 1vh) * 100);
     }
-    //transform: scale(4);
   }
 }
 
 
 .encircle {
-  font-weight: $light;
+  font-weight: $regular;
   font-size: var(--ms-size_2);
   padding: 0 0 0 var(--gutter);
   

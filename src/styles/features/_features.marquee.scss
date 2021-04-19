@@ -40,7 +40,7 @@ $item-count : 12;
         }
     }
 
-    &.S-areas {
+    /*&.S-areas {
         --item-display: 2;
 
         @media (min-width: $bp_xxs) {
@@ -62,7 +62,7 @@ $item-count : 12;
         @media (min-width: $bp_xxl) {
             --item-display: 7;
         }
-    }
+    }*/
 
     --move-final: calc(var(--item-count) * var(--item-width) * -1);
 
