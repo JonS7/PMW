@@ -17,26 +17,26 @@ $item-count : 12;
     --move-initial: 0;
 
     &.S-clients {
-        --item-display: 4;
+        --item-display: 3;
 
         @media (min-width: $bp_xxxs) {
-            --item-display: 5;
+            --item-display: 4;
         }
 
         @media (min-width: $bp_xxs) {
-            --item-display: 6;
+            --item-display: 5;
         }
 
         @media (min-width: $bp_xs) {
-            --item-display: 7;
+            --item-display: 6;
         }
 
         @media (min-width: $bp_small) {
-            --item-display: 8;
+            --item-display: 7;
         }
 
         @media (min-width: $bp_large) {
-            --item-display: 9;
+            --item-display: 8;
         }
     }
 
