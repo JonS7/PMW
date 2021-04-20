@@ -1,4 +1,4 @@
-gsap.set(".Site", {autoAlpha:1});
+//gsap.set(".Site", {autoAlpha:1});
 
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
@@ -50,7 +50,7 @@ function marquees() {
       let itemCount = marquee_style.getPropertyValue("--no_items");
       let itemDisplay = marquee_style.getPropertyValue("--item-display");
       let itemWidth = 100 / itemDisplay;
-      let moveFinal = itemCount * itemWidth * -1 - 50;
+      let moveFinal = itemCount * itemWidth * -1;
       //scrollTrigger.refresh();
 
       let tl = gsap.timeline({
@@ -58,9 +58,11 @@ function marquees() {
           scrollTrigger: {
             trigger: marquee,
             start: "top 60%",
-            endTrigger: ".map",
-            end: "bottom top",
-            scrub: true,
+            //endTrigger: ".map",
+            //end: "bottom top",
+            endTrigger: ".Site",
+            end: "bottom bottom",
+            scrub: .5,
             pin: true,
             pinSpacing: false,
           }
@@ -92,8 +94,8 @@ function map() {
 
       //gsap.set('.map text, .map circle', {autoAlpha: 0});
       tl.from(".map .highlight", {fill: "rgba(240,229,224,.1)"})
-      .from(".map text", {autoAlpha: 0}, 0)
-      .from(".map circle", {autoAlpha: 0}, 0)
+      .from(".map text", {opacity: 0}, 0)
+      .from(".map circle", {opacity: 0}, 0)
       .to(".map", {xPercent: -75,}, 0)
       .addLabel("end");
     }
@@ -109,16 +111,20 @@ function map() {
           trigger: ".map",
           pin: true,
           start: "center center", 
-          end: "center top",
+          //end: "center top",
+          endTrigger: ".Site",
+          end: "bottom bottom",
           scrub: true,
           snap: "labels",
-          anticipatePin: 2,
+          anticipatePin: 1,
+          pinSpacing: false
         }
       });
       // add animations and labels to the timeline
-      tl.from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
-        .from(".map text", {autoAlpha: 0, stagger: 0.1})
-        .from(".map circle", {autoAlpha: 0})
+      tl.addLabel("start")
+        .from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
+        .from(".map text", {opacity: 0, stagger: 0.1})
+        .from(".map circle", {opacity: 0})
         //.from(".agency-logo", {autoAlpha: 0, scale: 0, stagger: 0.1})
         .addLabel("end");
     }
@@ -141,14 +147,14 @@ function circles() {
 
 function fadeOut(data) {
   return gsap.to(data.current.container, { 
-        autoAlpha: 0,
+        opacity: 0,
         duration: opacityDuration
       });
 }
 
 function fadeIn(data) {
   return gsap.from(data.next.container, { 
-        autoAlpha: 0,
+        opacity: 0,
         duration: opacityDuration
       });
 }
@@ -160,7 +166,7 @@ function gridLeaveAnimation(data) {
   const header = container.querySelector('.page-header');
   gsap.set(gridItemHR, {transformOrigin: '0 0'})
   const tl = gsap.timeline({});
-  tl.to([gridItemText,header], {autoAlpha: 0, duration: opacityDuration, ease: 'none'});
+  tl.to([gridItemText,header], {opacity: 0, duration: opacityDuration, ease: 'none'});
   tl.to(gridItemHR, {scaleX: 0, duration: opacityDuration, ease:'power2.inOut'});
   return tl;
 }
@@ -173,7 +179,7 @@ function gridEnterAnimation(data) {
   gsap.set(gridItemHR, {transformOrigin: '0 0'})
   const tl = gsap.timeline({});
   tl.from(gridItemHR, {scaleX: 0, duration: opacityDuration, ease:'power2.inOut'});
-  tl.from([gridItemText,header], {autoAlpha: 0, duration: opacityDuration, ease: 'none'});
+  tl.from([gridItemText,header], {opacity: 0, duration: opacityDuration, ease: 'none'});
   return tl;
 }
 
