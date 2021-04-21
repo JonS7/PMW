@@ -42,13 +42,13 @@ $orbital-outline :  var(--ms-size_4);
     position: fixed;
     left: 0;
     top: 0;
-    height: 100vh;
+    //height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     transform-origin: 0 0;
 
     svg {
       width: auto;
-      height: calc(var(--vh, 1vh) * 100);
+      //height: calc(var(--vh, 1vh) * 100);
     }
   }
 }

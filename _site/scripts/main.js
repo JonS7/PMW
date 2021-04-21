@@ -123,15 +123,36 @@ function map() {
     "(max-width: 767px)": function() {
 
       // get map width instead of 75%
+      const map = document.querySelector('.map');
+      let mapHeight = map.offsetHeight;
+      let mapWidth = map.offsetWidth;
+      let vw = window.innerWidth;
+      let move = mapWidth - vw;
 
-      let tl = gsap.timeline({
+      gsap.set(map,{height: mapHeight});
+      gsap.set('.Site',{height: move});
+
+      /*let tl = gsap.timeline({
         ease: "none",
         scrollTrigger: {
           trigger: ".Site",
           pin: false,
           start: "top top",
           end: "bottom bottom",
-          scrub: 2
+          scrub: true
+          //snap: "labels",
+        }
+      });*/
+
+      let tl = gsap.timeline({
+        ease: "none",
+        scrollTrigger: {
+          trigger: '.Site',
+          //pin: true,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+          //pinSpacing: false,
           //snap: "labels",
         }
       });
@@ -140,7 +161,7 @@ function map() {
       tl.from(".map .highlight", {fill: "rgba(240,229,224,.1)"})
       .from(".map text", {opacity: 0}, 0)
       .from(".map circle", {opacity: 0}, 0)
-      .to(".map", {xPercent: -75,}, 0)
+      .to(".map", {x: "-"+move,}, 0)
       .addLabel("end");
     }
   });
