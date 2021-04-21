@@ -42,7 +42,7 @@ function updateClasses(data) {
 function marquees() {
   
   ScrollTrigger.matchMedia({
-    "(min-width: 768px)": function() {
+    "(orientation: landscape) and (min-width: 768px)": function() {
 
       const target = document.getElementById('areas');
       const marquee = target.querySelector('.marquee-inner');
@@ -72,6 +72,48 @@ function marquees() {
       tl.to(marquee, {xPercent: moveFinal})
     }
   });
+
+  ScrollTrigger.matchMedia({
+    "(orientation: portrait) and (min-width: 768px)": function() {
+
+      const target = document.getElementById('areas');
+      const marquee = target.querySelector('.marquee-inner');
+      const marquee_style = getComputedStyle(target);
+      let itemCount = marquee_style.getPropertyValue("--no_items");
+      let itemDisplay = marquee_style.getPropertyValue("--item-display");
+      let itemWidth = 100 / itemDisplay;
+      let moveFinal = itemCount * itemWidth * -1;
+
+      gsap.set(marquee,{paddingTop: "30%",paddingBottom: "5%"})
+      //gsap.set(target,{minHeight: "60vh"})
+
+      let tl = gsap.timeline({
+        ease: 'power2.inOut',
+          scrollTrigger: {
+            //trigger: marquee,
+            //start: "top 60%",
+            trigger: '.Site',
+            start: "top top",
+            //trigger: target,
+            //start: "top " + target.offsetTop,
+            //endTrigger: ".map",
+            //end: "bottom top",
+            endTrigger: ".Site",
+            end: "bottom 60%",
+            scrub: .5,
+            pin: true,
+            pinSpacing: true,
+          }
+      });
+      // add animations and labels to the timeline
+      tl.to(marquee, {xPercent: moveFinal})
+      .from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03}, "<")
+      .from(".map text", {opacity: 0, stagger: 0.1},"<")
+      .from(".map circle", {opacity: 0},">-1")
+      .from(".S-c2a", {opacity: 0, y:100},"<")
+      .addLabel("end");
+    }
+  });
 }
 
 
@@ -79,6 +121,8 @@ function map() {
 
   ScrollTrigger.matchMedia({
     "(max-width: 767px)": function() {
+
+      // get map width instead of 75%
 
       let tl = gsap.timeline({
         ease: "none",
@@ -103,7 +147,7 @@ function map() {
   
 
   ScrollTrigger.matchMedia({
-    "(min-width: 768px)": function() {
+    "(orientation: landscape) and (min-width: 768px)": function() {
 
       let tl = gsap.timeline({
         ease: "none",
@@ -129,6 +173,33 @@ function map() {
         .addLabel("end");
     }
   });
+
+  /*ScrollTrigger.matchMedia({
+    "(orientation: portrait) and (min-width: 768px)": function() {
+
+      let tl = gsap.timeline({
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".map",
+          pin: false,
+          start: "center center", 
+          endTrigger: ".Site",
+          end: "bottom top",
+          scrub: true,
+          //snap: "labels",
+          anticipatePin: 1,
+          pinSpacing: false
+        }
+      });
+      // add animations and labels to the timeline
+      tl.addLabel("start")
+        .from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
+        .from(".map text", {opacity: 0, stagger: 0.1})
+        .from(".map circle", {opacity: 0})
+        //.from(".agency-logo", {autoAlpha: 0, scale: 0, stagger: 0.1})
+        .addLabel("end");
+    }
+  });*/
   
 }
 
