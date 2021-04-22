@@ -9,27 +9,6 @@ a {
     color: $color-link-respond;
   }
 
-  /*.typeset &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: .2em;
-    background: $color-link-respond;
-    transform-origin: 0 100%;
-    transition: transform $trans-fast;
-    transform: scaleY(.1);
-    display: block;
-    mix-blend-mode: difference;
-
-     display: none;
-  }
-
-  .typeset &.button::after {
-    display: none;
-  }*/
-
 
   .typeset &:not(.button) {
     -webkit-box-decoration-break: clone;
@@ -47,10 +26,5 @@ a {
         mix-blend-mode: difference;
       }
     }
-
   }
-
-
-  
-
 }

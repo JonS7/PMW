@@ -1,5 +1,3 @@
-//gsap.set(".Site", {autoAlpha:1});
-
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
 // Then we set the value in the --vh custom property to the root of the document
@@ -39,10 +37,19 @@ function updateClasses(data) {
 }
 
 
+
 function marquees() {
-  
+
+  ScrollTrigger.matchMedia({
+    "(max-width: 767px)": function() {
+        gsap.set(".marquee-inner, .S-c2a", {clearProps: "all"});
+    }
+  });
+
   ScrollTrigger.matchMedia({
     "(orientation: landscape) and (min-width: 768px)": function() {
+
+      gsap.set(".marquee-inner, .S-c2a", {clearProps: "all"});
 
       const target = document.getElementById('areas');
       const marquee = target.querySelector('.marquee-inner');
@@ -51,15 +58,12 @@ function marquees() {
       let itemDisplay = marquee_style.getPropertyValue("--item-display");
       let itemWidth = 100 / itemDisplay;
       let moveFinal = itemCount * itemWidth * -1;
-      //scrollTrigger.refresh();
 
       let tl = gsap.timeline({
           ease: 'power2.inOut',
           scrollTrigger: {
             trigger: marquee,
             start: "top 60%",
-            //endTrigger: ".map",
-            //end: "bottom top",
             endTrigger: ".Site",
             end: "bottom bottom",
             scrub: .5,
@@ -76,6 +80,8 @@ function marquees() {
   ScrollTrigger.matchMedia({
     "(orientation: portrait) and (min-width: 768px)": function() {
 
+      gsap.set(".marquee-inner, .S-c2a", {clearProps: "all"});
+
       const target = document.getElementById('areas');
       const marquee = target.querySelector('.marquee-inner');
       const marquee_style = getComputedStyle(target);
@@ -85,19 +91,12 @@ function marquees() {
       let moveFinal = itemCount * itemWidth * -1;
 
       gsap.set(marquee,{paddingTop: "30%",paddingBottom: "5%"})
-      //gsap.set(target,{minHeight: "60vh"})
 
       let tl = gsap.timeline({
         ease: 'power2.inOut',
           scrollTrigger: {
-            //trigger: marquee,
-            //start: "top 60%",
             trigger: '.Site',
             start: "top top",
-            //trigger: target,
-            //start: "top " + target.offsetTop,
-            //endTrigger: ".map",
-            //end: "bottom top",
             endTrigger: ".Site",
             end: "bottom 60%",
             scrub: .5,
@@ -105,7 +104,7 @@ function marquees() {
             pinSpacing: true,
           }
       });
-      // add animations and labels to the timeline
+
       tl.to(marquee, {xPercent: moveFinal})
       .from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03}, "<")
       .from(".map text", {opacity: 0, stagger: 0.1},"<")
@@ -119,45 +118,39 @@ function marquees() {
 
 function map() {
 
+  // record the initial inline CSS for these elements so that ScrollTrigger can revert them even if animations add inline styles later
+//ScrollTrigger.saveStyles(".Site, .map"); // if you put this INSIDE one of the functions, it'll only revert the recorded elements when that media query no longer matches. You can use ScrollTrigger.saveStyles() in multiple places.
+
+  ScrollTrigger.matchMedia({
+    "(min-width: 768px)": function() {
+        gsap.set(".Site, .map", {clearProps: "all"});
+    }
+  });
+
   ScrollTrigger.matchMedia({
     "(max-width: 767px)": function() {
 
-      // get map width instead of 75%
+      gsap.set(".Site, .map", {clearProps: "all"});
+
       const map = document.querySelector('.map');
       let mapHeight = map.offsetHeight;
       let mapWidth = map.offsetWidth;
       let vw = window.innerWidth;
       let move = mapWidth - vw;
 
-      gsap.set(map,{height: mapHeight});
-      gsap.set('.Site',{height: move});
-
-      /*let tl = gsap.timeline({
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".Site",
-          pin: false,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: true
-          //snap: "labels",
-        }
-      });*/
+      gsap.set(map,{minHeight: mapHeight});
+      gsap.set('.Site',{minHeight: move+"px"});
 
       let tl = gsap.timeline({
         ease: "none",
         scrollTrigger: {
           trigger: '.Site',
-          //pin: true,
           start: "top top",
           end: "bottom bottom",
           scrub: true,
-          //pinSpacing: false,
-          //snap: "labels",
         }
       });
 
-      //gsap.set('.map text, .map circle', {autoAlpha: 0});
       tl.from(".map .highlight", {fill: "rgba(240,229,224,.1)"})
       .from(".map text", {opacity: 0}, 0)
       .from(".map circle", {opacity: 0}, 0)
@@ -170,13 +163,14 @@ function map() {
   ScrollTrigger.matchMedia({
     "(orientation: landscape) and (min-width: 768px)": function() {
 
+      gsap.set(".Site, .map", {clearProps: "all"});
+
       let tl = gsap.timeline({
         ease: "none",
         scrollTrigger: {
           trigger: ".map",
           pin: true,
-          start: "center center", 
-          //end: "center top",
+          start: "center center",
           endTrigger: ".Site",
           end: "bottom bottom",
           scrub: true,
@@ -185,42 +179,14 @@ function map() {
           pinSpacing: false
         }
       });
-      // add animations and labels to the timeline
+
       tl.addLabel("start")
         .from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
         .from(".map text", {opacity: 0, stagger: 0.1})
         .from(".map circle", {opacity: 0})
-        //.from(".agency-logo", {autoAlpha: 0, scale: 0, stagger: 0.1})
         .addLabel("end");
     }
   });
-
-  /*ScrollTrigger.matchMedia({
-    "(orientation: portrait) and (min-width: 768px)": function() {
-
-      let tl = gsap.timeline({
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".map",
-          pin: false,
-          start: "center center", 
-          endTrigger: ".Site",
-          end: "bottom top",
-          scrub: true,
-          //snap: "labels",
-          anticipatePin: 1,
-          pinSpacing: false
-        }
-      });
-      // add animations and labels to the timeline
-      tl.addLabel("start")
-        .from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
-        .from(".map text", {opacity: 0, stagger: 0.1})
-        .from(".map circle", {opacity: 0})
-        //.from(".agency-logo", {autoAlpha: 0, scale: 0, stagger: 0.1})
-        .addLabel("end");
-    }
-  });*/
   
 }
 

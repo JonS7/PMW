@@ -8,7 +8,7 @@
   .highlight {
     fill: $t-mid;
     @media (max-width: 767px) {
-      fill-opacity: .6;
+      fill-opacity: .8;
     }
   }
 
@@ -20,11 +20,6 @@
     fill: $color-base;
   }
 
-  @media (max-width: 767px) {
-    text, circle {
-      //display: none;
-    }
-  }
 }
 
 .subhead,
