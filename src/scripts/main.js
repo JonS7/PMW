@@ -64,8 +64,8 @@ function marquees() {
           scrollTrigger: {
             trigger: marquee,
             start: "top 60%",
-            endTrigger: ".Site",
-            end: "bottom bottom",
+            endTrigger: ".Site-footer",
+            end: "bottom bottom-=1", // -1 otherwise map gets covered at bottom
             scrub: .5,
             pin: true,
             pinSpacing: false,
@@ -148,6 +148,7 @@ function map() {
           start: "top top",
           end: "bottom bottom",
           scrub: true,
+          //invalidateOnRefresh: true
         }
       });
 
@@ -171,12 +172,10 @@ function map() {
           trigger: ".map",
           pin: true,
           start: "center center",
-          endTrigger: ".Site",
-          end: "bottom bottom",
+          endTrigger: ".Site-footer",
+          end: "bottom bottom-=1", // -1 otherwise map gets covered at bottom
           scrub: true,
-          snap: "labels",
-          anticipatePin: 1,
-          pinSpacing: false
+          pinSpacing: false,
         }
       });
 
@@ -184,6 +183,7 @@ function map() {
         .from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
         .from(".map text", {opacity: 0, stagger: 0.1})
         .from(".map circle", {opacity: 0})
+        //.from(".S-c2a", {opacity: 0, y:100},"<")
         .addLabel("end");
     }
   });
@@ -346,9 +346,10 @@ barba.init({
       // do something before entering the `contact` namespace
       //ScrollTrigger.getAll().forEach(t => t.kill());
       //ScrollTrigger.refresh();
+      circles();
       marquees();
       map();
-      circles();
+      
       console.log('on exp page');
     }
   }],

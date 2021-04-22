@@ -9,7 +9,7 @@ $orbital-outline :  var(--ms-size_4);
 }
 
 .S-areas {
-  overflow: hidden;
+  //overflow: visible;
   align-items: start;
 
   @media (min-width: 768px) {
