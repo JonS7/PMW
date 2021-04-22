@@ -42,5 +42,7 @@
   .g.orbitals {
     display: block;
     margin: 0;
+    position: relative;
+    z-index: 99999;
   }
 }
