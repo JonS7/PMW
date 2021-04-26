@@ -38,18 +38,50 @@ function updateClasses(data) {
 
 
 
-function marquees() {
+function map() {
+
+  // record the initial inline CSS for these elements so that ScrollTrigger can revert them even if animations add inline styles later
+//ScrollTrigger.saveStyles(".Site, .map"); // if you put this INSIDE one of the functions, it'll only revert the recorded elements when that media query no longer matches. You can use ScrollTrigger.saveStyles() in multiple places.
 
   ScrollTrigger.matchMedia({
+    "(min-width: 768px)": function() {
+        gsap.set(".Site, .map", {clearProps: "all"});
+    },
+
     "(max-width: 767px)": function() {
-        gsap.set(".marquee-inner, .S-c2a", {clearProps: "all"});
-    }
-  });
 
-  ScrollTrigger.matchMedia({
+      gsap.set(".marquee-inner, .Site, .map", {clearProps: "all"});
+
+      const map = document.querySelector('.map');
+      let mapHeight = map.offsetHeight;
+      let mapWidth = map.offsetWidth;
+      let vw = window.innerWidth;
+      let move = mapWidth - vw;
+
+      gsap.set(map,{minHeight: mapHeight});
+      gsap.set('.Site',{minHeight: move+"px"});
+
+      let tl = gsap.timeline({
+        ease: "none",
+        scrollTrigger: {
+          trigger: '.Site',
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+          //invalidateOnRefresh: true
+        }
+      });
+
+      tl.from(".map .highlight", {fill: "rgba(240,229,224,.1)"})
+      .from(".map text", {opacity: 0}, 0)
+      .from(".map circle", {opacity: 0}, 0)
+      .to(".map", {x: "-"+move,}, 0)
+      .addLabel("end");
+    },
+
     "(orientation: landscape) and (min-width: 768px)": function() {
 
-      gsap.set(".marquee-inner, .S-c2a", {clearProps: "all"});
+      gsap.set(".marquee-inner, .Site, .map", {clearProps: "all"});
 
       const target = document.getElementById('areas');
       const marquee = target.querySelector('.marquee-inner');
@@ -59,7 +91,7 @@ function marquees() {
       let itemWidth = 100 / itemDisplay;
       let moveFinal = itemCount * itemWidth * -1.008;
 
-      let tl = gsap.timeline({
+      let tl_marquee = gsap.timeline({
           ease: 'power2.inOut',
           scrollTrigger: {
             trigger: marquee,
@@ -73,11 +105,39 @@ function marquees() {
         });
 
 
-      tl.to(marquee, {xPercent: moveFinal})
-    }
-  });
+      tl_marquee.to(marquee, {xPercent: moveFinal})
 
-  ScrollTrigger.matchMedia({
+
+      let tl_map = gsap.timeline({
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".S-areas",
+          pin: false,
+          start: "top center",
+          endTrigger: ".Site-footer",
+          end: "bottom bottom-=1", // -1 otherwise map gets covered at bottom
+          scrub: true,
+          pinSpacing: false,
+        }
+      });
+
+      tl_map.from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
+        .from(".map text", {opacity: 0, stagger: 0.1})
+        .from(".map circle", {opacity: 0})
+        .from(".S-c2a", {opacity: 0, y:100})
+
+      gsap.to(".map", {
+        scrollTrigger: {
+          trigger: ".map",
+          start: "center center",
+          pin: true,
+          pinSpacing: false,
+          end: "+=9999",
+        }
+      });
+
+    },
+
     "(orientation: portrait) and (min-width: 768px)": function() {
 
       gsap.set(".marquee-inner, .S-c2a", {clearProps: "all"});
@@ -112,107 +172,9 @@ function marquees() {
       .from(".S-c2a", {opacity: 0, y:100},"<")
       .addLabel("end");
     }
-  });
-}
 
-
-function map() {
-
-  // record the initial inline CSS for these elements so that ScrollTrigger can revert them even if animations add inline styles later
-//ScrollTrigger.saveStyles(".Site, .map"); // if you put this INSIDE one of the functions, it'll only revert the recorded elements when that media query no longer matches. You can use ScrollTrigger.saveStyles() in multiple places.
-
-  ScrollTrigger.matchMedia({
-    "(min-width: 768px)": function() {
-        gsap.set(".Site, .map", {clearProps: "all"});
-    }
   });
 
-  ScrollTrigger.matchMedia({
-    "(max-width: 767px)": function() {
-
-      gsap.set(".Site, .map", {clearProps: "all"});
-
-      const map = document.querySelector('.map');
-      let mapHeight = map.offsetHeight;
-      let mapWidth = map.offsetWidth;
-      let vw = window.innerWidth;
-      let move = mapWidth - vw;
-
-      gsap.set(map,{minHeight: mapHeight});
-      gsap.set('.Site',{minHeight: move+"px"});
-
-      let tl = gsap.timeline({
-        ease: "none",
-        scrollTrigger: {
-          trigger: '.Site',
-          start: "top top",
-          end: "bottom bottom",
-          scrub: true,
-          //invalidateOnRefresh: true
-        }
-      });
-
-      tl.from(".map .highlight", {fill: "rgba(240,229,224,.1)"})
-      .from(".map text", {opacity: 0}, 0)
-      .from(".map circle", {opacity: 0}, 0)
-      .to(".map", {x: "-"+move,}, 0)
-      .addLabel("end");
-    }
-  });
-  
-
-  ScrollTrigger.matchMedia({
-    "(orientation: landscape) and (min-width: 768px)": function() {
-
-      gsap.set(".Site, .map", {clearProps: "all"});
-
-      ScrollTrigger.create({
-        trigger: ".map",
-        start: "center center",
-        pin: true,
-        pinSpacing: false,
-        //anticipatePin: 2,
-        //end: "+=9999",
-        endTrigger: ".Site-footer",
-         end: "bottom bottom-=1", // -1 otherwise map gets covered at bottom
-      });
-
-      /*let tl = gsap.timeline({
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".map",
-          pin: true,
-          start: "center center",
-          endTrigger: ".Site-footer",
-          end: "bottom bottom-=1", // -1 otherwise map gets covered at bottom
-          scrub: true,
-          pinSpacing: true,
-          snap: 1
-        }
-      });*/
-      let tl = gsap.timeline({
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".S-areas",
-          pin: false,
-          start: "top center",
-          endTrigger: ".Site-footer",
-          end: "bottom bottom", // -1 otherwise map gets covered at bottom
-          scrub: true,
-          pinSpacing: false,
-          //snap: 1
-        }
-      });
-
-      tl.addLabel("start")
-        .from(".map .highlight", {fill: "rgba(240,229,224,.1)", stagger: 0.03})
-        .from(".map text", {opacity: 0, stagger: 0.1})
-        .from(".map circle", {opacity: 0})
-        //.from(".S-c2a", {opacity: 0, y:100})
-        //.set(".map", {position:"fixed", y:0})
-        .addLabel("end");
-    }
-  });
   
 }
 
@@ -373,7 +335,7 @@ barba.init({
       //ScrollTrigger.getAll().forEach(t => t.kill());
       //ScrollTrigger.refresh();
       circles();
-      marquees();
+      //marquees();
       map();
       
       console.log('on exp page');
