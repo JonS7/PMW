@@ -44,9 +44,9 @@ function map() {
 //ScrollTrigger.saveStyles(".Site, .map"); // if you put this INSIDE one of the functions, it'll only revert the recorded elements when that media query no longer matches. You can use ScrollTrigger.saveStyles() in multiple places.
 
   ScrollTrigger.matchMedia({
-    "(min-width: 768px)": function() {
+    /*"(min-width: 768px)": function() {
         gsap.set(".Site, .map", {clearProps: "all"});
-    },
+    },*/
 
     "(max-width: 767px)": function() {
 
@@ -232,10 +232,10 @@ function gridEnterAnimation(data) {
 
 barba.hooks.beforeLeave((data) => {
   const scrollElement = window.document.scrollingElement || window.document.body || window.document.documentElement;
-  //ScrollTrigger.disable();
-  ScrollTrigger.getAll().forEach(ST => ST.disable());
+
+  //ScrollTrigger.getAll().forEach(ST => ST.disable());
   gsap.to(scrollElement, {scrollTop: 0, duration: opacityDuration, ease:'power2.inOut'})
-  //ScrollTrigger.getAll().forEach(t => t.kill());
+
   
 });
 
@@ -334,6 +334,7 @@ barba.init({
       // do something before entering the `contact` namespace
       //ScrollTrigger.getAll().forEach(t => t.kill());
       //ScrollTrigger.refresh();
+      ScrollTrigger.refresh(true);
       circles();
       //marquees();
       map();
