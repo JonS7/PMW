@@ -6,6 +6,8 @@ $orbital-outline :  var(--ms-size_4);
    @media (max-width: 767px) {
     justify-content: start;
   }
+
+
 }
 
 .S-areas {
@@ -15,8 +17,18 @@ $orbital-outline :  var(--ms-size_4);
   @media (min-width: 768px) {
     padding: $orbital-outline 0 0;
 
+
+   //margin-bottom: 25vh;
+
+
+
     + .S-c2a {
-      padding-top: 0;
+      padding: 0;
+      //transform: translateY(-10vh);
+
+      .button {
+        position: absolute;
+      }
     }
   }
   
@@ -29,6 +41,8 @@ $orbital-outline :  var(--ms-size_4);
 
 
 .map {
+  position: relative;
+
   .-is-bg {
     z-index: -1;
   }
@@ -50,6 +64,9 @@ $orbital-outline :  var(--ms-size_4);
       width: auto;
     }
   }
+
+  //position: sticky;
+  //top: 0;
 }
 
 

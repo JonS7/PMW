@@ -57,7 +57,7 @@ function marquees() {
       let itemCount = marquee_style.getPropertyValue("--no_items");
       let itemDisplay = marquee_style.getPropertyValue("--item-display");
       let itemWidth = 100 / itemDisplay;
-      let moveFinal = itemCount * itemWidth * -1.008;
+      let moveFinal = itemCount * itemWidth * -1;
 
       let tl = gsap.timeline({
           ease: 'power2.inOut',
@@ -65,7 +65,7 @@ function marquees() {
             trigger: marquee,
             start: "top 60%",
             endTrigger: ".Site-footer",
-            end: "bottom bottom", // -1 otherwise map gets covered at bottom
+            end: "bottom bottom-=1", // -1 otherwise map gets covered at bottom
             scrub: .5,
             pin: true,
             pinSpacing: false,
@@ -166,18 +166,7 @@ function map() {
 
       gsap.set(".Site, .map", {clearProps: "all"});
 
-      ScrollTrigger.create({
-        trigger: ".map",
-        start: "center center",
-        pin: true,
-        pinSpacing: false,
-        //anticipatePin: 2,
-        //end: "+=9999",
-        endTrigger: ".Site-footer",
-         end: "bottom bottom-=1", // -1 otherwise map gets covered at bottom
-      });
-
-      /*let tl = gsap.timeline({
+      let tl = gsap.timeline({
         ease: "none",
         scrollTrigger: {
           trigger: ".map",
@@ -186,21 +175,8 @@ function map() {
           endTrigger: ".Site-footer",
           end: "bottom bottom-=1", // -1 otherwise map gets covered at bottom
           scrub: true,
-          pinSpacing: true,
-          snap: 1
-        }
-      });*/
-      let tl = gsap.timeline({
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".S-areas",
-          pin: false,
-          start: "top center",
-          endTrigger: ".Site-footer",
-          end: "bottom bottom", // -1 otherwise map gets covered at bottom
-          scrub: true,
           pinSpacing: false,
-          //snap: 1
+          snap: 1
         }
       });
 

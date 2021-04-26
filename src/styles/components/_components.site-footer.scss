@@ -6,6 +6,10 @@
   font-size: 75%;
   color: $t-light;
 
+  @media (min-width: 768px) {
+    padding-top: 20vh;
+  }
+
   a {
     text-decoration: none;
     opacity: .667;

@@ -52,11 +52,11 @@
             --item-display: 5;
         }
 
-        @media (min-width: $bp_xl) {
+        @media (min-width: $bp_xxl) {
             --item-display: 6;
         }
 
-        @media (min-width: $bp_xxl) {
+        @media (min-width: $bp_xxxl) {
             --item-display: 7;
         }
     }
