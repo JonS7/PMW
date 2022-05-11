@@ -7,7 +7,7 @@ const
   plugins = [
     require('imagemin-mozjpeg')(),
     require('imagemin-pngquant')({ strip: true }),
-    require('imagemin-svgo')()
+    //require('imagemin-svgo')()
   ];
 
 module.exports = class {

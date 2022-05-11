@@ -1,5 +1,6 @@
 const dev = global.dev  = (process.env.ELEVENTY_ENV === 'development');
-/*const Image = require("@11ty/eleventy-img");
+/*
+const Image = require("@11ty/eleventy-img");
 function imageShortcode(src, cls, alt, sizes, widths) {
   let options = {
     widths: widths,
@@ -43,8 +44,8 @@ module.exports = config => {
   //config.addLiquidShortcode("myImage", imageShortcode);
   //config.addJavaScriptFunction("myImage", imageShortcode);
 
-  // inline assets
-  config.addTransform('inline', require('./lib/transforms/inline'));
+  // inline assets // removed as inline js fucking up svg (merging paths)
+  //config.addTransform('inline', require('./lib/transforms/inline'));
 
   /* --- SHORTCODES --- */
   // page navigation
